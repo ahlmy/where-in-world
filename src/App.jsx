@@ -4,12 +4,13 @@ import { createContext, useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 
 export const ThemeContext = createContext();
-const startUpTheme = localStorage.getItem("theme");
+const startUpTheme = localStorage.getItem("theme") ?? "light";
 
 function App() {
   const [theme, setTheme] = useState(startUpTheme);
   const [allCountries, setAllCountries] = useState([]);
   const [loading, setLoading] = useState(true);
+  localStorage.setItem("theme", theme);
   useEffect(() => {
     const fetchAllCountries = async () => {
       try {
