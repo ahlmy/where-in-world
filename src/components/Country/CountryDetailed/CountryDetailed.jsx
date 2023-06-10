@@ -4,6 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import { ThemeContext } from "../../../App";
 import { Skeleton } from "@mui/material";
 import arrow from "../../../assets/arrow.png";
+import { Helmet } from "react-helmet";
 
 const CountryDetailed = () => {
   const { theme } = useContext(ThemeContext);
@@ -75,6 +76,9 @@ const CountryDetailed = () => {
     : ["No languages"];
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title>Where in the World | {params.id}</title>
+      </Helmet>
       <div className={styles.imgContainer}>
         <Link to={"/"} className={styles.link}>
           <button
